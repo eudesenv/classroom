@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'email', 'password', 'role', 'cpf'
     ];
 
     /**
@@ -66,5 +66,21 @@ class User extends Authenticatable
     public function getUpdatedAtFormattedAttribute()
     {
         return $this->attributes['updated_at'] = date('d/m/Y H:i', strtotime($this->updated_at));
+    }
+
+    public function setCpfAttribute($value)
+    {
+        $this->attributes['cpf'] = preg_replace('/[^0-9]/', '', $value);
+    }
+
+    public function getCpfFormattedAttribute()
+    {
+        $string = $this->cpf;
+
+        if (!empty($string)) {
+            $string = preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $string);
+        }
+
+        return $string;
     }
 }

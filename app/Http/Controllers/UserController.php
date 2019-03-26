@@ -99,7 +99,7 @@ class UserController extends Controller
         $roles = implode(',', array_keys(User::ROLES));
         $this->validate($request, [
             'name' => 'required|max:255',
-            //'cpf' => 'required|numeric|digits:11|unique:clients,cpf,'.$client->id,
+            'cpf' => 'required|numeric|digits:11|unique:users,cpf,'.$user->id,
             'email' => 'required|email|unique:users,email,'.$user->id,
             'role' => "required|in:$roles",
         ], ['role.required' => 'O Perfil deve ser informado.']);

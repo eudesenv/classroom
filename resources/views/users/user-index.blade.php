@@ -10,9 +10,9 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
+            <th>CPF</th>
             <th>Perfil</th>
             <th>Dt. Criação</th>
-            <th>Dt. Atualização</th>
             <th>Ação</th>
         </tr>
         </thead>
@@ -21,9 +21,9 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
+                <td>{{ $user->cpf_formatted }}</td>
                 <td>{{ $roles[$user->role] }}</td>
                 <td>{{ $user->created_at_formatted }}</td>
-                <td>{{ $user->updated_at_formatted }}</td>
                 <td>
                     <a href="{{route('users.edit',['client' => $user->id])}}">Editar</a> |
                     <a href="{{route('users.show',['client' => $user->id])}}">Ver</a>

@@ -6,6 +6,12 @@
             <input class="form-control" id="name" name="name" value="{{old('name',$user->name)}}">
         </div>
     </div>
+    <div class="col-md-4">   
+        <div class="form-group">
+            <label for="name">CPF</label>
+            <input class="form-control" type="number" id="cpf" maxlength="11" name="cpf" value="{{old('cpf',$user->cpf)}}">
+        </div>
+    </div>
     <div class="col-md-6">   
             <div class="form-group">
                 <label for="name">E-mail</label>

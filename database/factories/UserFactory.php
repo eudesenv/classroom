@@ -3,6 +3,8 @@
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
+require_once __DIR__ . '/../faker_data/document_number.php';
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -15,11 +17,14 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
+    $cpfs = cpfs();
+
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => bcrypt(123456), // secret
+        'cpf' => $cpfs[array_rand($cpfs, 1)],
         'remember_token' => Str::random(10),
     ];
 });

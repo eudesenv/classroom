@@ -17,12 +17,20 @@
             <td>{{$user->name}}</td>
         </tr>
         <tr>
+            <th scope="row">CPF</th>
+            <td>{{$user->cpf_formatted}}</td>
+        </tr>
+        <tr>
             <th scope="row">Email</th>
             <td>{{$user->email}}</td>
         </tr>
         <tr>
             <th scope="row">Data Criação</th>
             <td>{{$user->created_at_formatted}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Data Alteração</th>
+            <td>{{$user->updated_at_formatted}}</td>
         </tr>
         <tr>
             <th scope="row">Perfil</th>
