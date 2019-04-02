@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'email' => 'E-mail',
+    'email' => 'E-mail ou CPF',
     'password' => 'Senha',
     'rememberme' => 'Lembrar Login ?',
     'forgotpassword' => 'Esqueceu a Senha?',

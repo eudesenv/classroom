@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>Ver cliente</h3>
+    <h3>Ver usuário</h3>
     <a class="btn btn-primary" href="{{ route('users.edit',['client' => $user->id]) }}">Editar</a>
     <a class="btn btn-danger" href="{{ route('users.destroy',['client' => $user->id]) }}"
         onclick="event.preventDefault();if(confirm('Deseja excluir este item?')){document.getElementById('form-delete').submit();}">Excluir</a>
