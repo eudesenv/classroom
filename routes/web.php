@@ -35,6 +35,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::group(['middleware' => 'can:admin'], function(){
             Route::get('/home', 'HomeController@index')->name('home');
+            Route::resources([
+                'users' => 'UserController'
+            ]);
     });
 
     Route::group(['middleware' => 'can:admin'], function(){

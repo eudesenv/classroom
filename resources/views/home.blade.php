@@ -1,5 +1,7 @@
 @extends(layout())
-
+@php
+    $current_layout = explode('.', layout())[1];
+@endphp
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -37,7 +39,7 @@
                                     <div class="card-body">
                                     <h4 class="card-title">Alunos</h4>
                                     <p class="card-text">Gestão de alunos e frequência.</p>
-                                    <a href="#" class="btn btn-primary">Gerenciar</a>
+                                    <a href="{{ route("users.index") }}" class="btn btn-primary">Gerenciar</a>
                                     </div>
                                 </div>
                             </div>

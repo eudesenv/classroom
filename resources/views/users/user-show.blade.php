@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(layout())
 
 @section('content')
     <h3>Ver usuário</h3>
