@@ -11,17 +11,24 @@ class RoomClassSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Room::class)->create([
-            'description' => 'Sala 1',
-            'availiable' => 1,
-        ]);
 
-        factory(App\Room::class)->create([
-            'description' => 'Sala 2',
-            'availiable' => 0,
-        ]);
+        factory(\App\School::class, 2)->make()->each(function($school){
+            $school->save();
 
-        $rooms = \App\Room::all();
+            factory(App\Room::class)->create([
+                'description' => 'Sala 1',
+                'availiable' => 1,
+                'school_id' => $school->id
+            ]);
+    
+            factory(App\Room::class)->create([
+                'description' => 'Sala 2',
+                'availiable' => 0,
+                'school_id' => $school->id
+            ]);
+        });        
+
+        $rooms = \App\Room::where(['availiable' => 1])->get();
 
         factory(App\Lecture::class, 2)->make()->each(function($lecture) use ($rooms){
             $lecture->room_id = $rooms->random()->id;

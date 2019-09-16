@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/laradock
+/storage
 .vscode/
 .editorconfig
 .env
