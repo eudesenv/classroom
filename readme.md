@@ -1,3 +1,11 @@
 ## ClassRoom
 
-Controle de frquência e notas de alunos.
+### Manager:
+
+- School
+- Class
+- Room
+- Lectures
+- Students
+- Tests
+- Notes
