@@ -21,6 +21,6 @@ class UsersTableSeeder extends Seeder
             'email' => 'eudes_jf@hotmail.com'
         ]);
 
-        factory(\App\User::class, 3)->states('user')->create();
+        factory(\App\User::class, 1)->states('user')->create();
     }
 }

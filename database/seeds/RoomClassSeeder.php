@@ -20,13 +20,13 @@ class RoomClassSeeder extends Seeder
                 'availiable' => 1,
                 'school_id' => $school->id
             ]);
-    
+
             factory(App\Room::class)->create([
                 'description' => 'Sala 2',
                 'availiable' => 0,
                 'school_id' => $school->id
             ]);
-        });        
+        });
 
         $rooms = \App\Room::where(['availiable' => 1])->get();
 
