@@ -12,10 +12,16 @@ class Student extends Model
         'id_card',
         'occupation',
         'user_id',
+        'classe_id',
     ];
 
     public function user()
     {
         return $this->hasOne('App\User');
+    }
+
+    public function classe()
+    {
+        return $this->hasOne('App\Classe');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Classe;
+use App\Student;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +15,15 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('', function () {
+        return response()->json(['status' => 'CLASSROOM_API_ONLINE', 'version' => 'v1']);
+    });
+    // TEST RELATIONS
+    // Route::get('students', function () {
+    //     return response()->json(Classe::all()[0]->students);
+    // });
+});
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
