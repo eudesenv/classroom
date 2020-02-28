@@ -27,12 +27,5 @@ class RoomClassSeeder extends Seeder
                 'school_id' => $school->id
             ]);
         });
-
-        $rooms = \App\Room::where(['availiable' => 1])->get();
-
-        factory(App\Lecture::class, 2)->make()->each(function($lecture) use ($rooms){
-            $lecture->room_id = $rooms->random()->id;
-            $lecture->save();
-        });
     }
 }
