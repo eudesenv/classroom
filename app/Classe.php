@@ -21,6 +21,6 @@ class Classe extends Model
 
     public function students()
     {
-        return $this->hasMany('App\Student');
+        return $this->belongsToMany('App\Student', 'classe_student')->withTimestamps();
     }
 }

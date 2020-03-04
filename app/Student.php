@@ -12,7 +12,6 @@ class Student extends Model
         'id_card',
         'occupation',
         'user_id',
-        'classe_id',
     ];
 
     public function user()
@@ -20,8 +19,8 @@ class Student extends Model
         return $this->hasOne('App\User');
     }
 
-    public function classe()
+    public function classes()
     {
-        return $this->hasOne('App\Classe');
+        return $this->belongsToMany('App\Classe', 'classe_student')->withTimestamps();
     }
 }

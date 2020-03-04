@@ -11,6 +11,16 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Student::class, 2)->create();
+        factory(\App\Student::class, 2)->make()->each(function($student){
+            $student->save();
+
+            $classe = \App\Classe::find(1);
+
+            $classe->students()->attach($student->id);
+
+        });
+
+
+
     }
 }
