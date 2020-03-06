@@ -20,5 +20,18 @@ class TestTableSeeder extends Seeder
             $test->subject_id = $subject->random()->id;
             $test->save();
         });
+
+        $students = App\Student::all();
+        $tests = App\Test::all();
+
+        foreach ($students as $student) {
+            factory(App\Note::class, 1)->make()->each(function($note) use ($student, $tests)
+            {
+                $note->test_id = $tests->random()->id;
+                $note->student_id = $student->id;
+                $note->save();
+            });
+        }
+
     }
 }
