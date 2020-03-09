@@ -14,17 +14,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return School::all();
     }
 
     /**
@@ -35,7 +25,7 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return School::create($request->all());
     }
 
     /**
@@ -46,18 +36,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\School  $school
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(School $school)
-    {
-        //
+        return $school;
     }
 
     /**
@@ -69,7 +48,8 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        $school->update($request->all());
+        return $school;
     }
 
     /**
@@ -80,6 +60,7 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+        return $school;
     }
 }
