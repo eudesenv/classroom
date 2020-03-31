@@ -19,8 +19,31 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import ExampleComponent from './components/ExampleComponent.vue';
+import PassportClients from './components/passport/Clients.vue';
+import PassportAuthorizedClients from './components/passport/AuthorizedClients.vue';
+import PersonalAccessTokens from './components/passport/PersonalAccessTokens.vue';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', ExampleComponent);
+Vue.component('passport-clients', PassportClients);
+Vue.component('passport-authorized-clients', PassportAuthorizedClients);
+Vue.component('passport-personal-access-tokens', PersonalAccessTokens);
+
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component(
+//     'passport-clients',
+//     require('./components/passport/Clients.vue').default
+// );
+
+// Vue.component(
+//     'passport-authorized-clients',
+//     require('./components/passport/AuthorizedClients.vue').default
+// );
+
+// Vue.component(
+//     'passport-personal-access-tokens',
+//     require('./components/passport/PersonalAccessTokens.vue').default
+// );
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
