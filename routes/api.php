@@ -23,12 +23,14 @@ Route::group(['prefix' => 'v1'], function () {
     // Route::get('students', function () {
     //     return response()->json(Classe::all()[0]->students);
     // });
-    // Route::get('/schools', 'SchoolController@index');
+    Route::get('/schools', 'SchoolController@index');
 
-    Route::middleware('auth:api')->group(function () {
-        Route::resource('schools', 'SchoolController');
-    });
+    // Route::middleware('auth:api')->group(function () {
+    //     Route::resource('schools', 'SchoolController');
+    // });
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('login', 'Auth\AuthController@login');

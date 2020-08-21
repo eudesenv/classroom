@@ -13,8 +13,8 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
-        "laravel/passport": "7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "tymon/jwt-auth": "dev-develop#689fcc263f6c4f650057905ae6dce441879df19b"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
