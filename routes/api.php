@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix' => 'v1'], function () {
+/*Route::group(['prefix' => 'v1',], function () {
     Route::get('', function () {
         return response()->json(['status' => 'CLASSROOM_API_ONLINE', 'version' => 'v1']);
     });
@@ -23,14 +23,21 @@ Route::group(['prefix' => 'v1'], function () {
     // Route::get('students', function () {
     //     return response()->json(Classe::all()[0]->students);
     // });
-    Route::get('/schools', 'SchoolController@index');
+    // Route::get('/schools', 'SchoolController@index');
 
     // Route::middleware('auth:api')->group(function () {
     //     Route::resource('schools', 'SchoolController');
     // });
-});
+});*/
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+# API LOGIN
 Route::post('login', 'Auth\AuthController@login');
+# API LOGOUT
+Route::middleware('auth:api')->post('logout', 'Auth\AuthController@logout');
+
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
+    Route::resource('schools', 'SchoolController', ['except' => ['create', 'edit']]);
+});
